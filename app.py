@@ -2,6 +2,7 @@
 
 
 
+
 from flask import Flask, render_template, request, redirect, url_for 
 import os
 from werkzeug.utils import secure_filename
@@ -29,6 +30,47 @@ def uploaded_file(filename):
 
 if __name__ =='__main__': 
     app.run(debug=True)
+
+static
+
+uploaded.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uploaded Image</title>
+</head>
+<body>
+    <h1>Uploaded Image</h1>
+  
+    <p>
+        <img src="{{ url_for('static', filename=filename) }}"alt="Uploaded image">
+    </p>
+   
+</body>
+</html
+
+
+
+index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Image</title>
+</head>
+<body>
+    <h1>Upload Image</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*">
+        <input type="submit" value="Upload">
+    </form>
+</body>
+</html>
 
 
 
